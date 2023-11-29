@@ -9,11 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-/**
- * FXML Controller class
- *
- * @author evert
- */
+
 public class PrimaryController implements Initializable {
 
     @FXML
@@ -53,8 +49,8 @@ public class PrimaryController implements Initializable {
     @FXML
     private Button Clear;
     
-    double valor1, valor2, resultado;
-    String calculo;
+    double value1, value2, calculation;
+    String operation;
     boolean dot = true;
     boolean newNumber = false;
   
@@ -169,64 +165,64 @@ public class PrimaryController implements Initializable {
     @FXML
     private void add(ActionEvent event) {
    
-        if(valor1 != 0){
-            valor2 = Double.parseDouble(result.getText());
-            resultado = valor1 + valor2;
-            valor1 = resultado;
-            valor2 = 0;
-            result.setText(Double.toString(resultado));
+        if(value1 != 0){
+            value2 = Double.parseDouble(result.getText());
+            calculation = value1 + value2;
+            value1 = calculation;
+            value2 = 0;
+            result.setText(Double.toString(calculation));
             newNumber = true;
         } else {
-            valor1 = Double.parseDouble(result.getText());
+            value1 = Double.parseDouble(result.getText());
             result.setText("");
-            calculo = "add";
+            operation = "add";
             dot = true;
         }
     }
 
     @FXML
     private void subtract(ActionEvent event) {
-        valor1 = Double.parseDouble(result.getText());
+        value1 = Double.parseDouble(result.getText());
         result.setText("");
-        calculo = "subtract";
+        operation = "subtract";
         dot = true;
     }
 
     @FXML
     private void divide(ActionEvent event) {
-        valor1 = Double.parseDouble(result.getText());
+        value1 = Double.parseDouble(result.getText());
         result.setText("");
-        calculo = "divide";
+        operation = "divide";
         dot = true;
     }
 
     @FXML
     private void multiply(ActionEvent event) {
-        valor1 = Double.parseDouble(result.getText());
+        value1 = Double.parseDouble(result.getText());
         result.setText("");
-        calculo = "multiply";
+        operation = "multiply";
         dot = true;
     }
 
     @FXML
     private void equal(ActionEvent event) {
-         valor2 = Double.parseDouble(result.getText()); 
-         resultado = valor1 + valor2;
+         value2 = Double.parseDouble(result.getText()); 
+         calculation = value1 + value2;
          
-         switch(calculo){
-             case "add": resultado = valor1 + valor2;
+         switch(operation){
+             case "add": calculation = value1 + value2;
              break;
-             case "subtract": resultado = valor1 - valor2;
+             case "subtract": calculation = value1 - value2;
              break;
-             case "multiply": resultado = valor1 * valor2;
+             case "multiply": calculation = value1 * value2;
              break;
-             case "divide": resultado = valor1 / valor2;
+             case "divide": calculation = value1 / value2;
              break;
          }
-         result.setText(Double.toString(resultado));
+         result.setText(Double.toString(calculation));
          newNumber = true;
-         valor1 = 0;
-         valor2 = 0;
+         value1 = 0;
+         value2 = 0;
     }
 
     @FXML
@@ -234,8 +230,8 @@ public class PrimaryController implements Initializable {
         result.setText("");
         dot = true;
         newNumber = true;
-        valor1 = 0;
-        valor2 = 0;
+        value1 = 0;
+        value2 = 0;
     }
 
 }
